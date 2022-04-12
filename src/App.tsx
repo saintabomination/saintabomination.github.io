@@ -1,9 +1,12 @@
 import Desktop from './components/Desktop.component';
+import Taskbar from './components/Taskbar.component';
 
 const App = (): JSX.Element =>
   (
     <div>
-      <Desktop />
+      <Desktop>
+        <Taskbar />
+      </Desktop>
     </div>
   );
 
