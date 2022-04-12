@@ -4,6 +4,7 @@ import App from './App';
 
 import './style/reset.css';
 import './style/main.css';
+import './style/gradients.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -1,6 +1,6 @@
 const Titlebar = (): JSX.Element =>
   (
-    <div className="titlebar-wrap">
+    <div className="titlebar-wrap blue-gradient">
       Titlebar.
     </div>
   );
