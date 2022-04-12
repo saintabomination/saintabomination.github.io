@@ -25,7 +25,19 @@
   top: 150px;
   display: flex;
   flex-direction: column;
+  z-index: 5;
+}
+
+.window-wrap .window-content {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 5;
+  height: 100%;
+}
+
+.titlebar-wrap {
+  width: 100%;
+  background-color: #0000ff;
+  color: #ffffff;
 }

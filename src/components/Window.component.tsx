@@ -1,7 +1,12 @@
+import Titlebar from './Titlebar.component';
+
 const Window = (): JSX.Element =>
   (
     <div className="window-wrap">
-      Window
+      <Titlebar />
+      <div className="window-content">
+        Window
+      </div>
     </div>
   );
 
