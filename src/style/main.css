@@ -36,6 +36,8 @@
   border-right-color: #808080;
   border-bottom-color: #808080;
   border-left-color: #ffffff;
+  resize: both;
+  overflow: auto;
   
   /* Debug */
   left: 100px;
