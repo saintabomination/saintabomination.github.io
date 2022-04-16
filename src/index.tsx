@@ -6,6 +6,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import store from './redux/store';
 
 import './style/reset.css';
+import './style/fonts.css';
 import './style/main.css';
 import './style/gradients.css';
 
