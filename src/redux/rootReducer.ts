@@ -6,5 +6,5 @@ const rootReducer = combineReducers({
   desktop: desktopReducer,
 });
 
-
+export type RootState = ReturnType<typeof rootReducer>;
 export default rootReducer;

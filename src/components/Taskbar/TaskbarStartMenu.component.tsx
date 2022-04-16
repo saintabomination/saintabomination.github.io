@@ -1,6 +1,6 @@
 const TaskbarStartMenu = (): JSX.Element =>
   (
-    <div className="start-menu">
+    <div className="start-menu light-border">
       
     </div>
   );

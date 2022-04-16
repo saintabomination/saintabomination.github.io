@@ -1,0 +1,18 @@
+.light-border {
+  border: 1px solid;
+  border-top-color: #ffffff;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+  border-left-color: #ffffff;
+}
+
+.light-border.pressable:active {
+  border-top-color: #000000;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  border-left-color: #000000;
+}
+
+.dark-border {
+
+}
