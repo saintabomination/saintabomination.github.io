@@ -16,7 +16,7 @@ const Taskbar = (): JSX.Element => {
     <div className="taskbar-wrap">
       <TaskbarStartButton />
       <TaskbarModule>
-        {currentTime.getHours()}:{currentTime.getMinutes()}
+        {String(currentTime.getHours()).padStart(2, '0')}:{String(currentTime.getMinutes()).padStart(2, '0')}
       </TaskbarModule>
     </div>
   );
