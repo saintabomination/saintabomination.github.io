@@ -1,5 +1,5 @@
 import Desktop from './components/Desktop.component';
-import Taskbar from './components/Taskbar.component';
+import Taskbar from './components/Taskbar/Taskbar.component';
 import Window from './components/Window.component';
 
 const App = (): JSX.Element =>

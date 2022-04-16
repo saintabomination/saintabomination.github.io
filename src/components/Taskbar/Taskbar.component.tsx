@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+import TaskbarStartButton from './TaskbarStartButton.component';
 import TaskbarModule from './TaskbarModule.component';
 
 const Taskbar = (): JSX.Element => {
@@ -13,6 +14,7 @@ const Taskbar = (): JSX.Element => {
 
   return (
     <div className="taskbar-wrap">
+      <TaskbarStartButton />
       <TaskbarModule>
         {currentTime.getHours()}:{currentTime.getMinutes()}
       </TaskbarModule>
