@@ -5,7 +5,7 @@ const Window = (): JSX.Element =>
     <div className="window-wrap">
       <Titlebar />
       <div className="window-content">
-        Window
+        This page is WIP.
       </div>
     </div>
   );

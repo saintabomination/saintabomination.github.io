@@ -53,8 +53,46 @@
   left: 0;
   display: flex;
   width: 170px;
-  height: 320px;
+  min-height: 200px;
   background-color: #c0c0c0;
+}
+
+.taskbar-wrap .start-menu .blue-part {
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  width: 21px;
+  color: #ffffff;
+  transform: rotate(180deg);
+}
+
+.taskbar-wrap .start-menu .blue-part .part-text {
+  writing-mode: vertical-lr;
+}
+
+.taskbar-wrap .start-menu .content-part {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.taskbar-wrap .start-menu .content-part .start-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.taskbar-wrap .start-menu .content-part .start-menu-item:hover {
+  background-color: #000080;
+  color: #ffffff;
+}
+
+.taskbar-wrap .start-menu .content-part .start-menu-item .item-icon {
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
 }
 
 .taskbar-wrap .taskbar-module {
