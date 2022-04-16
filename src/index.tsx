@@ -7,6 +7,7 @@ import store from './redux/store';
 
 import './style/reset.css';
 import './style/fonts.css';
+import './style/classes.css';
 import './style/main.css';
 import './style/gradients.css';
 

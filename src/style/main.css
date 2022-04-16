@@ -41,6 +41,14 @@
   border-right-color: #000000;
   border-bottom-color: #000000;
   border-left-color: #ffffff;
+  cursor: pointer;
+}
+
+.taskbar-wrap .start-button:active {
+  border-top-color: #000000;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  border-left-color: #000000;
 }
 
 .taskbar-wrap .start-button .button-logo {
@@ -49,6 +57,16 @@
 
 .taskbar-wrap .start-button .button-text {
   font-weight: bold;
+}
+
+.taskbar-wrap .start-menu {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  display: flex;
+  width: 100px;
+  height: 200px;
+  background-color: grey;
 }
 
 .taskbar-wrap .taskbar-module {

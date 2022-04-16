@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-const rootReducer = combineReducers({
+import desktopReducer from './reducers/desktopReducer';
 
+const rootReducer = combineReducers({
+  desktop: desktopReducer,
 });
 
 
