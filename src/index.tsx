@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
+import { Provider as ReduxProvider } from 'react-redux';
+import store from './redux/store';
+
 import './style/reset.css';
 import './style/main.css';
 import './style/gradients.css';
@@ -11,6 +14,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ReduxProvider store={store}>
+      <App />
+    </ReduxProvider>
   </React.StrictMode>
 );
