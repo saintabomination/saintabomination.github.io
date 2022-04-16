@@ -1,7 +1,11 @@
-const TaskbarModule = (): JSX.Element =>
+type TaskbarModuleProps = {
+  children: React.ReactNode;
+};
+
+const TaskbarModule = ({ children }: TaskbarModuleProps): JSX.Element =>
   (
     <div className="taskbar-module">
-      Module 
+      {children}
     </div>
   );
 

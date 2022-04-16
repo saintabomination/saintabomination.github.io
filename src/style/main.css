@@ -61,21 +61,6 @@
   z-index: 5;
 }
 
-.window-wrap::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: 302px;
-  height: 202px;
-  border: 1px solid red;
-  border-top-color: #dfdfdf;
-  border-right-color: #000000;
-  border-bottom-color: #000000;
-  border-left-color: #dfdfdf;
-  z-index: -1;
-}
-
 .window-wrap .window-content {
   display: flex;
   flex-direction: column;
