@@ -1,12 +1,13 @@
 import ItemIcon from '../../assets/menu-item-icon.png';
 
 type TaskbarStartMenuItem = {
+  handler: () => any;
   children: React.ReactNode;
 };
 
-const TaskbarStartMenuItem = ({ children }: TaskbarStartMenuItem): JSX.Element =>
+const TaskbarStartMenuItem = ({ handler, children }: TaskbarStartMenuItem): JSX.Element =>
   (
-    <div className="start-menu-item">
+    <div className="start-menu-item" onClick={() => handler()}>
       <img className="item-icon" src={ItemIcon} alt="Item Icon" />
       <p className="item-text">{children}</p>
     </div>

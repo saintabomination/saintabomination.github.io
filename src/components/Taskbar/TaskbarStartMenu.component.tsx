@@ -1,22 +1,36 @@
-import TaskbarStartMenuItem from "./TaskbarStartMenuItem.component";
+import { useDispatch } from 'react-redux';
 
-const TaskbarStartMenu = (): JSX.Element =>
-  (
+import TaskbarStartMenuItem from './TaskbarStartMenuItem.component';
+
+import desktopActions from '../../redux/actions/desktopActions';
+
+const TaskbarStartMenu = (): JSX.Element => {
+  const dispatch = useDispatch();
+
+  const clickHandler = () => {
+    alert('Click!');
+    dispatch({
+      type: desktopActions.TOGGLE_START_MENU,
+    });
+  }
+
+  return (
     <div className="start-menu light-border">
       <div className="blue-part start-menu-gradient">
         <p className="part-text no-select">SaintAbomination</p>
       </div>
       <div className="content-part">
-        <TaskbarStartMenuItem>Menu Item</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem>Menu Item</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem>Menu Item</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem>Menu Item</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem>Menu Item</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem>Menu Item</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem>Menu Item</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem>Menu Item</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem handler={clickHandler}>Menu Item</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem handler={clickHandler}>Menu Item</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem handler={clickHandler}>Menu Item</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem handler={clickHandler}>Menu Item</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem handler={clickHandler}>Menu Item</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem handler={clickHandler}>Menu Item</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem handler={clickHandler}>Menu Item</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem handler={clickHandler}>Menu Item</TaskbarStartMenuItem>
       </div>
     </div>
   );
+}
 
 export default TaskbarStartMenu;
