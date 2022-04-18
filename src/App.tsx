@@ -1,15 +1,25 @@
+import { useSelector } from 'react-redux';
+
 import Desktop from './components/Desktop.component';
 import Taskbar from './components/Taskbar/Taskbar.component';
 import Window from './components/Window/Window.component';
 
-const App = (): JSX.Element =>
-  (
+import { RootState } from './redux/rootReducer';
+
+const App = (): JSX.Element => {
+  const { allWindows } = useSelector((state: RootState) => state.desktop);
+
+  return (
     <div>
       <Desktop>
         <Taskbar />
-        <Window />
+        {allWindows ? allWindows.map(
+          (currentWindow, index) =>
+          <Window key={index} windowData={currentWindow} />
+        ) : null}
       </Desktop>
     </div>
   );
+}
 
 export default App;

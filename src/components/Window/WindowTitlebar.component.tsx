@@ -1,11 +1,12 @@
 type WindowTitlebarProps = {
+  text?: string;
   children: React.ReactNode;
 };
 
-const WindowTitlebar = ({ children }: WindowTitlebarProps): JSX.Element =>
+const WindowTitlebar = ({ text, children }: WindowTitlebarProps): JSX.Element =>
   (
     <div className="titlebar-wrap blue-gradient">
-      <p className="titlebar-title">Window</p>
+      {text ? <p className="titlebar-title">{text}</p> : null}
       {children}
     </div>
   );

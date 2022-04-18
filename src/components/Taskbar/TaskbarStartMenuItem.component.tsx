@@ -1,6 +1,7 @@
 import ItemIcon from '../../assets/menu-item-icon.png';
 
 type TaskbarStartMenuItem = {
+  // eslint-disable-next-line
   handler: () => any;
   children: React.ReactNode;
 };

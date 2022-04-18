@@ -1,15 +1,17 @@
 import WindowTitlebar from './WindowTitlebar.component';
 import WindowButtonComponent from './WindowButton.component';
 
+import { WindowType } from '../../types/windowTypes';
+
 type WindowProps = {
-  controls?: boolean;
+  windowData: WindowType;
 };
 
-const Window = ({ controls = true }: WindowProps): JSX.Element =>
+const Window = ({ windowData }: WindowProps): JSX.Element =>
   (
     <div className="window-wrap">
-      <WindowTitlebar>
-        {controls ? (
+      <WindowTitlebar text={windowData.title ?? 'Window'}>
+        {windowData.controls ? (
           <div className="titlebar-controls">
             <WindowButtonComponent text="_" />
             <WindowButtonComponent text="X" />
