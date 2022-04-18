@@ -105,6 +105,8 @@
 
 .window-wrap {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   padding: 1px;
   width: 300px;
   height: 200px;
@@ -115,13 +117,6 @@
   border-bottom-color: #808080;
   border-left-color: #ffffff;
   resize: both;
-  overflow: auto;
-  
-  /* Debug */
-  left: 100px;
-  top: 150px;
-  display: flex;
-  flex-direction: column;
   z-index: 5;
 }
 

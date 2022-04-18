@@ -8,7 +8,8 @@ interface InitialStateDefaultObject {
 
 const INITIAL_STATE: InitialStateDefaultObject = {
   allWindows: [
-    { id: '0', title: 'Welcome!', controls: true },
+    { id: '0', title: 'Welcome!', controls: true, x: 40, y: 40 },
+    { id: '0', title: 'Welcome!', controls: true, x: 120, y: 120 },
   ],
   isStartMenuOpen: false,
 };

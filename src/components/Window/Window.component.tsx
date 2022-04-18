@@ -9,7 +9,13 @@ type WindowProps = {
 
 const Window = ({ windowData }: WindowProps): JSX.Element =>
   (
-    <div className="window-wrap">
+    <div
+      className="window-wrap"
+      style={{
+        left: windowData.x,
+        top: windowData.y,
+      }}
+    >
       <WindowTitlebar text={windowData.title ?? 'Window'}>
         {windowData.controls ? (
           <div className="titlebar-controls">
