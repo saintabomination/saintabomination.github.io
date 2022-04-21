@@ -12,6 +12,12 @@ const TaskbarStartMenu = (): JSX.Element => {
     dispatch({
       type: desktopActions.TOGGLE_START_MENU,
     });
+    dispatch({
+      type: desktopActions.OPEN_WINDOW,
+      payload: {
+        title: 'Window',
+      },
+    })
   }
 
   return (

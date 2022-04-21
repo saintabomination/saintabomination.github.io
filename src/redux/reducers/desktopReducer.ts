@@ -16,6 +16,7 @@ const INITIAL_STATE: InitialStateDefaultObject = {
 
 type Payload = {
   id: string;
+  title?: string;
   x?: number;
   y?: number;
 };
@@ -41,7 +42,7 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
               x: currentWindow.x + (action.payload.x ?? 0),
               y: currentWindow.y + (action.payload.y ?? 0),
             } : currentWindow
-        )
+        ),
       };
 
     case desktopActions.CLOSE_WINDOW:
@@ -51,6 +52,21 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
           currentWindow =>
           currentWindow.id !== action.payload.id
         ),
+      };
+
+    case desktopActions.OPEN_WINDOW:
+      return {
+        ...state,
+        allWindows: [
+          ...state.allWindows,
+          {
+            id: String(Math.floor(Math.random()) * 1000),
+            title: (action.payload.title ? 'Window' : 'a'),
+            x: (action.payload.x ?? 0),
+            y: (action.payload.y ?? 0),
+            controls: true,
+          },
+        ],
       };
 
     default:
