@@ -1,10 +1,11 @@
 type WindowButtonComponentProps = {
   text?: string;
+  [x:string]: any;
 };
 
-const WindowButtonComponent = ({ text }: WindowButtonComponentProps): JSX.Element =>
+const WindowButtonComponent = ({ text, ...otherProps }: WindowButtonComponentProps): JSX.Element =>
   (
-    <div className="window-button light-border pressable no-select">
+    <div className="window-button light-border pressable no-select" {...otherProps}>
       {text}
     </div>
   );

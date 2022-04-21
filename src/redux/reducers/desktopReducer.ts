@@ -14,7 +14,13 @@ const INITIAL_STATE: InitialStateDefaultObject = {
   isStartMenuOpen: false,
 };
 
-const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: { id: string, x: number, y: number } }) => {
+type Payload = {
+  id: string;
+  x?: number;
+  y?: number;
+};
+
+const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: Payload }) => {
   switch (action.type) {
     case desktopActions.TOGGLE_START_MENU:
       return {
@@ -23,6 +29,8 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
       };
 
     case desktopActions.ADD_TO_WINDOW_POS:
+      (action.payload as { id: string, x: number, y: number})
+
       return {
         ...state,
         allWindows: state.allWindows.map(
@@ -30,10 +38,19 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
           currentWindow.id === action.payload.id ?
             {
               ...currentWindow,
-              x: currentWindow.x + action.payload.x,
-              y: currentWindow.y + action.payload.y,
+              x: currentWindow.x + (action.payload.x ?? 0),
+              y: currentWindow.y + (action.payload.y ?? 0),
             } : currentWindow
         )
+      };
+
+    case desktopActions.CLOSE_WINDOW:
+      return {
+        ...state,
+        allWindows: state.allWindows.filter(
+          currentWindow =>
+          currentWindow.id !== action.payload.id
+        ),
       };
 
     default:

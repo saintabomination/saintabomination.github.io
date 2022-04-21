@@ -49,7 +49,14 @@ const Window = ({ windowData }: WindowProps): JSX.Element => {
         {windowData.controls ? (
           <div className="titlebar-controls">
             <WindowButtonComponent text="_" />
-            <WindowButtonComponent text="X" />
+            <WindowButtonComponent text="X" onClick={() => {
+              dispatch({
+                type: desktopActions.CLOSE_WINDOW,
+                payload: {
+                  id: windowData.id,
+                },
+              });
+            }} />
           </div>
         ) : null}
       </WindowTitlebar>
