@@ -2,6 +2,10 @@
   background: linear-gradient(to right, #000080, #1084d0);
 }
 
+.inactive-gradient {
+  background: linear-gradient(to right, #808080, #b5b5b5);
+}
+
 .start-menu-gradient {
   background: linear-gradient(to bottom, #0000ff, #000080 30%);
 }

@@ -33,17 +33,32 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
         ),
       };
 
-    case desktopActions.OPEN_WINDOW:
+    case desktopActions.OPEN_WINDOW: {
+      const newWindows = state.allWindows.map(window => { return { ...window, active: false } });
+
       return {
         ...state,
         allWindows: [
-          ...state.allWindows,
+          ...newWindows,
           {
             id: String(Math.floor(Math.random() * 1000)),
             title: (action.payload.title ? `Window ${Math.floor(Math.random() * 1000)}` : 'a'),
             controls: true,
+            active: true,
           },
         ],
+      };
+    }
+
+    case desktopActions.SET_WINDOW_ACTIVE:
+      return {
+        ...state,
+        allWindows: state.allWindows.map(
+          window =>
+          window.id === action.payload.id
+            ? { ...window, active: true }
+            : { ...window, active: false }
+        ),
       };
 
     default:

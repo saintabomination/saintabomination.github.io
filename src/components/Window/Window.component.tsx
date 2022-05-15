@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Draggable from 'react-draggable';
 
@@ -13,13 +14,29 @@ type WindowProps = {
 
 const Window = ({ windowData }: WindowProps): JSX.Element => {
   const dispatch = useDispatch();
+  const windowElement = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const clickHandler = () => {
+      dispatch({
+        type: desktopActions.SET_WINDOW_ACTIVE,
+        payload: { id: windowData.id },
+      });
+    }
+
+    windowElement && windowElement.current && windowElement.current.addEventListener('mousedown', clickHandler);
+    return () => {
+      windowElement && windowElement.current && windowElement.current.removeEventListener('mousedown', clickHandler);
+    }
+  }, []);
 
   return (
     <Draggable>
       <div
         className="window-wrap"
+        ref={windowElement}
       >
-        <WindowTitlebar text={windowData.title ?? 'Window'}>
+        <WindowTitlebar text={windowData.title ?? 'Window'} inactive={!windowData.active}>
           {windowData.controls ? (
             <div className="titlebar-controls">
               <WindowButtonComponent text="_" />

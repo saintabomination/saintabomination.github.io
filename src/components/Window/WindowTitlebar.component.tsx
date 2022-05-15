@@ -1,11 +1,12 @@
 type WindowTitlebarProps = {
   text: string;
+  inactive?: boolean;
   children: React.ReactNode;
 };
 
-const WindowTitlebar = ({ text, children }: WindowTitlebarProps): JSX.Element =>
+const WindowTitlebar = ({ text, inactive, children }: WindowTitlebarProps): JSX.Element =>
   (
-    <div className="titlebar-wrap blue-gradient">
+    <div className={`titlebar-wrap ${inactive ? 'inactive' : 'blue'}-gradient`}>
       {text ? <p className="titlebar-title">{text}</p> : null}
       {children}
     </div>
