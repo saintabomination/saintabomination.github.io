@@ -3,4 +3,5 @@ export type WindowType = {
   title?: string;
   controls?: boolean;
   active: boolean;
+  depth: number;
 };

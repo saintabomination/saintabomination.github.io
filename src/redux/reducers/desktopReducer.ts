@@ -45,6 +45,7 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
             title: (action.payload.title ? `Window ${Math.floor(Math.random() * 1000)}` : 'a'),
             controls: true,
             active: true,
+            depth: 0,
           },
         ],
       };
@@ -56,7 +57,11 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
         allWindows: state.allWindows.map(
           window =>
           window.id === action.payload.id
-            ? { ...window, active: true }
+            ? {
+              ...window,
+              active: true,
+              depth: Math.max(...state.allWindows.map(window => window.depth)) + 1,
+            }
             : { ...window, active: false }
         ),
       };

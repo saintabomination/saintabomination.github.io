@@ -33,7 +33,10 @@ const Window = ({ windowData }: WindowProps): JSX.Element => {
   return (
     <Draggable>
       <div
-        className="window-wrap"
+        className={`window-wrap ${windowData.active ? 'active' : ''}`}
+        style={{
+          zIndex: windowData.depth ?? 0,
+        }}
         ref={windowElement}
       >
         <WindowTitlebar text={windowData.title ?? 'Window'} inactive={!windowData.active}>
