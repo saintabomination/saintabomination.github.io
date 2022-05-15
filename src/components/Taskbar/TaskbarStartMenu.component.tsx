@@ -8,7 +8,6 @@ const TaskbarStartMenu = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const clickHandler = () => {
-    alert('Click!');
     dispatch({
       type: desktopActions.TOGGLE_START_MENU,
     });

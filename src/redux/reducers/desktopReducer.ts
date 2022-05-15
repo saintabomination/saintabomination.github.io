@@ -7,18 +7,13 @@ interface InitialStateDefaultObject {
 }
 
 const INITIAL_STATE: InitialStateDefaultObject = {
-  allWindows: [
-    { id: '0', title: 'Welcome!', controls: true, x: 40, y: 40 },
-    { id: '1', title: 'Welcome!', controls: true, x: 120, y: 120 },
-  ],
+  allWindows: [],
   isStartMenuOpen: false,
 };
 
 type Payload = {
   id: string;
   title?: string;
-  x?: number;
-  y?: number;
 };
 
 const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: Payload }) => {
@@ -27,22 +22,6 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
       return {
         ...state,
         isStartMenuOpen: !state.isStartMenuOpen,
-      };
-
-    case desktopActions.ADD_TO_WINDOW_POS:
-      (action.payload as { id: string, x: number, y: number})
-
-      return {
-        ...state,
-        allWindows: state.allWindows.map(
-          currentWindow =>
-          currentWindow.id === action.payload.id ?
-            {
-              ...currentWindow,
-              x: currentWindow.x + (action.payload.x ?? 0),
-              y: currentWindow.y + (action.payload.y ?? 0),
-            } : currentWindow
-        ),
       };
 
     case desktopActions.CLOSE_WINDOW:
@@ -60,10 +39,8 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
         allWindows: [
           ...state.allWindows,
           {
-            id: String(Math.floor(Math.random()) * 1000),
-            title: (action.payload.title ? 'Window' : 'a'),
-            x: (action.payload.x ?? 0),
-            y: (action.payload.y ?? 0),
+            id: String(Math.floor(Math.random() * 1000)),
+            title: (action.payload.title ? `Window ${Math.floor(Math.random() * 1000)}` : 'a'),
             controls: true,
           },
         ],

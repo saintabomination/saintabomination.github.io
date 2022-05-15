@@ -14,8 +14,8 @@ const App = (): JSX.Element => {
       <Desktop>
         <Taskbar />
         {allWindows ? allWindows.map(
-          (currentWindow, index) =>
-          <Window key={index} windowData={currentWindow} />
+          currentWindow =>
+          <Window key={currentWindow.id} windowData={currentWindow} />
         ) : null}
       </Desktop>
     </div>

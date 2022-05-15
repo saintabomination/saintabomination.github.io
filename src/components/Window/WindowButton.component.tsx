@@ -1,5 +1,6 @@
 type WindowButtonComponentProps = {
   text?: string;
+  // eslint-disable-next-line
   [x:string]: any;
 };
 
