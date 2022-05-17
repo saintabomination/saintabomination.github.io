@@ -1,15 +1,14 @@
-import ItemIcon from '../../assets/menu-item-icon.png';
-
 type TaskbarStartMenuItem = {
+  icon: string;
   // eslint-disable-next-line
   handler: () => any;
   children: React.ReactNode;
 };
 
-const TaskbarStartMenuItem = ({ handler, children }: TaskbarStartMenuItem): JSX.Element =>
+const TaskbarStartMenuItem = ({ icon, handler, children }: TaskbarStartMenuItem): JSX.Element =>
   (
     <div className="start-menu-item" onClick={() => handler()}>
-      <img className="item-icon" src={ItemIcon} alt="Item Icon" />
+      <img className="item-icon" src={icon} alt="Item Icon" />
       <p className="item-text">{children}</p>
     </div>
   );

@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 import { WindowType } from '../../types/windowTypes';
 import desktopActions from '../actions/desktopActions';
 
@@ -41,8 +43,8 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
         allWindows: [
           ...newWindows,
           {
-            id: String(Math.floor(Math.random() * 1000)),
-            title: (action.payload.title ? `Window ${Math.floor(Math.random() * 1000)}` : 'a'),
+            id: uuid(),
+            title: (action.payload.title ?? 'Window'),
             controls: true,
             active: true,
             depth: state.allWindows.length > 0 ? Math.max(...state.allWindows.map(window => window.depth)) + 1 : 0,
@@ -57,6 +59,7 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
 
       return {
         ...state,
+        isStartMenuOpen: false,
         allWindows: state.allWindows.map(
           (window, index) =>
           window.id === action.payload.id
