@@ -45,26 +45,36 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
             title: (action.payload.title ? `Window ${Math.floor(Math.random() * 1000)}` : 'a'),
             controls: true,
             active: true,
-            depth: 0,
+            depth: state.allWindows.length > 0 ? Math.max(...state.allWindows.map(window => window.depth)) + 1 : 0,
           },
         ],
       };
     }
 
-    case desktopActions.SET_WINDOW_ACTIVE:
+    case desktopActions.SET_WINDOW_ACTIVE: {
+      const sortedWindows = state.allWindows.sort((win1, win2) => win1.depth - win2.depth).reverse();
+      const maxWindowDepth = sortedWindows[0].depth;
+
       return {
         ...state,
         allWindows: state.allWindows.map(
-          window =>
+          (window, index) =>
           window.id === action.payload.id
             ? {
               ...window,
               active: true,
-              depth: Math.max(...state.allWindows.map(window => window.depth)) + 1,
+              depth: maxWindowDepth,
             }
-            : { ...window, active: false }
+            : {
+              ...window,
+              active: false,
+              depth: window.depth > state.allWindows.filter(window => window.id === action.payload.id)[0].depth
+                ? state.allWindows[index].depth - 1
+                : window.depth
+            }
         ),
       };
+    }
 
     default:
       return state;
