@@ -15,16 +15,88 @@ import NetworkIcon from '../../assets/network-icon.png';
 const TaskbarStartMenu = (): JSX.Element => {
   const dispatch = useDispatch();
 
-  const clickHandler = () => {
+  const openAboutMe = () => {
     dispatch({
       type: desktopActions.TOGGLE_START_MENU,
     });
     dispatch({
       type: desktopActions.OPEN_WINDOW,
       payload: {
-        title: 'Window',
+        title: 'About me',
       },
-    })
+    });
+  }
+
+  const openMywork = () => {
+    dispatch({
+      type: desktopActions.TOGGLE_START_MENU,
+    });
+    dispatch({
+      type: desktopActions.OPEN_WINDOW,
+      payload: {
+        title: 'My work',
+      },
+    });
+  }
+
+  const openServices = () => {
+    dispatch({
+      type: desktopActions.TOGGLE_START_MENU,
+    });
+    dispatch({
+      type: desktopActions.OPEN_WINDOW,
+      payload: {
+        title: 'Services',
+      },
+    });
+  }
+
+  const openTechnologies = () => {
+    dispatch({
+      type: desktopActions.TOGGLE_START_MENU,
+    });
+    dispatch({
+      type: desktopActions.OPEN_WINDOW,
+      payload: {
+        title: 'Technologies',
+      },
+    });
+  }
+
+  const openTestimonials = () => {
+    dispatch({
+      type: desktopActions.TOGGLE_START_MENU,
+    });
+    dispatch({
+      type: desktopActions.OPEN_WINDOW,
+      payload: {
+        title: 'Testimonials',
+      },
+    });
+  }
+
+  const openMinesweeper = () => {
+    dispatch({
+      type: desktopActions.TOGGLE_START_MENU,
+    });
+    dispatch({
+      type: desktopActions.OPEN_WINDOW,
+      payload: {
+        title: 'Minesweeper',
+      },
+    });
+  }
+
+  const openContact = () => {
+    dispatch({
+      type: desktopActions.TOGGLE_START_MENU,
+    });
+    dispatch({
+      type: desktopActions.OPEN_WINDOW,
+      payload: {
+        title: 'Contact',
+      },
+    });
   }
 
   return (
@@ -33,13 +105,13 @@ const TaskbarStartMenu = (): JSX.Element => {
         <p className="part-text no-select">SaintAbomination</p>
       </div>
       <div className="content-part">
-        <TaskbarStartMenuItem icon={MemoryIcon} handler={clickHandler}>About me</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem icon={DefragmentationIcon} handler={clickHandler}>My work</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem icon={PrinterIcon} handler={clickHandler}>Services</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem icon={ComputerIcon} handler={clickHandler}>Technologies</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem icon={TextIcon} handler={clickHandler}>Testimonials</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem icon={TreeIcon} handler={clickHandler}>Minesweeper</TaskbarStartMenuItem>
-        <TaskbarStartMenuItem icon={NetworkIcon} handler={clickHandler}>Contact</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem icon={MemoryIcon} handler={openAboutMe}>About me</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem icon={DefragmentationIcon} handler={openMywork}>My work</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem icon={PrinterIcon} handler={openServices}>Services</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem icon={ComputerIcon} handler={openTechnologies}>Technologies</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem icon={TextIcon} handler={openTestimonials}>Testimonials</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem icon={TreeIcon} handler={openMinesweeper}>Minesweeper</TaskbarStartMenuItem>
+        <TaskbarStartMenuItem icon={NetworkIcon} handler={openContact}>Contact</TaskbarStartMenuItem>
       </div>
     </div>
   );
