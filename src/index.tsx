@@ -8,6 +8,7 @@ import './style/reset.css';
 import './style/fonts.css';
 import './style/classes.css';
 import './style/main.css';
+import './style/button.css';
 import './style/borders.css';
 import './style/gradients.css';
 
