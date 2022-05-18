@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import TaskbarStartMenuItem from './TaskbarStartMenuItem.component';
+import AboutMe from '../Applications/AboutMe';
 
 import desktopActions from '../../redux/actions/desktopActions';
 
@@ -23,6 +24,7 @@ const TaskbarStartMenu = (): JSX.Element => {
       type: desktopActions.OPEN_WINDOW,
       payload: {
         title: 'About me',
+        content: <AboutMe />,
       },
     });
   }

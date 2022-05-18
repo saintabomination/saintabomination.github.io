@@ -55,7 +55,7 @@ const Window = ({ windowData }: WindowProps): JSX.Element => {
           ) : null}
         </WindowTitlebar>
         <div className="window-content">
-          This page is WIP.
+          {windowData.content ?? null}
         </div>
       </div>
     </Draggable>

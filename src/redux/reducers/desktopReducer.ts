@@ -16,6 +16,7 @@ const INITIAL_STATE: InitialStateDefaultObject = {
 type Payload = {
   id: string;
   title?: string;
+  content?: React.ReactNode;
 };
 
 const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: Payload }) => {
@@ -45,6 +46,7 @@ const desktopReducer = (state = INITIAL_STATE, action: { type: string, payload: 
           {
             id: uuid(),
             title: (action.payload.title ?? 'Window'),
+            content: action.payload.content ?? null,
             controls: true,
             active: true,
             depth: state.allWindows.length > 0 ? Math.max(...state.allWindows.map(window => window.depth)) + 1 : 0,
